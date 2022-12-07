@@ -1,0 +1,41 @@
+<!DOCTYPE HTML> 	
+<HTML> <HEAD> <TITLE>cookies</TITLE>
+<script  type="text/JavaScript">
+function сохранить_cookie ()  {
+   document.cookie=document.регистрация.n1.name + "=" + document.регистрация.n1.value + "; expires=Monday, 19-May-2024 23:45:00 GMT"
+   document.cookie=document.регистрация.n2.name + "=" + document.регистрация.n2.value + "; expires = Monday, 19-May-2024 23:45:00 GMT"
+   document.cookie=document.регистрация.n3.name + "=" + document.регистрация.n3.value + "; expires=Monday, 19-May-2024 23:45:00 GMT"
+}
+function прочитать_cookie (n)  {
+  cookie_array=document.cookie.split ("; ")
+  for (i=0; i<cookie_array.length; i++)
+        {pole=cookie_array[i].split ("=")
+          cookie_name=pole[0]
+          cookie_value=pole[1]
+          if (n==cookie_name) {return (cookie_value)}}
+  return null
+}
+function проверить_cookie ()  {
+  n1= прочитать_cookie ("n1")
+  n2= прочитать_cookie ("n2")
+  n3= прочитать_cookie ("n3")
+  if (n1) 
+  {document.регистрация.n1.value=n1
+   document.регистрация.n2.value=n2
+   document.регистрация.n3.value=n3}
+}
+</SCRIPT>  
+</HEAD>
+<BODY style="margin-left:30px" onLoad="проверить_cookie()">
+    <h1>Веб-дизайн в действии</h1>
+    <FORM METHOD=POST NAME="регистрация">
+        <p>введите имя</p> <p><input type=”text” name="n1"></p>
+        <p>введите фамлию</p> <p><input type=”text” name="n2"></p>
+        <p>введите город</p> <p><input type=”text” name="n3"></p>
+        <p>
+        <INPUT TYPE=BUTTON VALUE="Отправить" onClick="сохранить_cookie()">
+        <INPUT TYPE=reset VALUE="Очистить">
+        </p>
+    </FORM> 
+</BODY> 
+</HTML>
